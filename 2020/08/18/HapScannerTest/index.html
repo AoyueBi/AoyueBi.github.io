@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="[toc] 一条染色体的测试，画MAF图程序如下： java -Xmx100g -jar TIGER_v1.0.1.jar -a HapScanner -p ./parameters_036_abd_hapScanner.txt &amp;gt; log_036_abd_hapScanner2.txt 2&amp;gt;&amp;amp;1 &amp;amp;  chr036 一共合并 call 出 19051 个 Indel,">
+<meta name="keywords" content="Evolution Genomics Genetics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HapScannerTest">
+<meta property="og:url" content="http://yoursite.com/2020/08/18/HapScannerTest/index.html">
+<meta property="og:site_name" content="Plant Genetics">
+<meta property="og:description" content="[toc] 一条染色体的测试，画MAF图程序如下： java -Xmx100g -jar TIGER_v1.0.1.jar -a HapScanner -p ./parameters_036_abd_hapScanner.txt &amp;gt; log_036_abd_hapScanner2.txt 2&amp;gt;&amp;amp;1 &amp;amp;  chr036 一共合并 call 出 19051 个 Indel,">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-08-18T03:27:52.092Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HapScannerTest">
+<meta name="twitter:description" content="[toc] 一条染色体的测试，画MAF图程序如下： java -Xmx100g -jar TIGER_v1.0.1.jar -a HapScanner -p ./parameters_036_abd_hapScanner.txt &amp;gt; log_036_abd_hapScanner2.txt 2&amp;gt;&amp;amp;1 &amp;amp;  chr036 一共合并 call 出 19051 个 Indel,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/08/18/HapScannerTest/">
+
+
+
+
+
+  <title>HapScannerTest | Plant Genetics</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Plant Genetics</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">The greatest test of courage on earth is to bear defeat without losing heart</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/18/HapScannerTest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aoyue Bi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Plant Genetics">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HapScannerTest</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-18T11:27:11+08:00">
+                2020-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[toc]</p>
+<h1 id="一条染色体的测试，画MAF图"><a href="#一条染色体的测试，画MAF图" class="headerlink" title="一条染色体的测试，画MAF图"></a>一条染色体的测试，画MAF图</h1><p>程序如下：</p>
+<pre><code>java -Xmx100g -jar TIGER_v1.0.1.jar -a HapScanner -p ./parameters_036_abd_hapScanner.txt &gt; log_036_abd_hapScanner2.txt 2&gt;&amp;1 &amp;
+</code></pre><ul>
+<li>chr036 一共合并 call 出 19051 个 Indel, 在 六倍体中 maf 等于0的有 7885 个,小于0.01且不等于0的有 5003 个， 剩余11166 个。</li>
+<li>maf 小于 0.01 的有 12888/19051 占比：0.6764<br>结论：14213456个indel中，预计保留 14213456*0.3236 = 4599474</li>
+</ul>
+<h1 id="路径大全"><a href="#路径大全" class="headerlink" title="路径大全"></a>路径大全</h1><h2 id="HapScanner-VCF-file-文件路径"><a href="#HapScanner-VCF-file-文件路径" class="headerlink" title="HapScanner VCF file 文件路径"></a>HapScanner VCF file 文件路径</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d</span><br><span class="line">cd /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF</span><br><span class="line"></span><br><span class="line">cd /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd</span><br><span class="line">cd /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF</span><br><span class="line"></span><br><span class="line">cd /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab</span><br><span class="line">cd /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF</span><br></pre></td></tr></table></figure>
+<h2 id="bcftools-合并后的VCF文件路径"><a href="#bcftools-合并后的VCF文件路径" class="headerlink" title="bcftools 合并后的VCF文件路径"></a>bcftools 合并后的VCF文件路径</h2><pre><code>cd /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner
+</code></pre><h2 id="过滤MAF-MISS-OCCURRENCE-后的VCF文件路"><a href="#过滤MAF-MISS-OCCURRENCE-后的VCF文件路" class="headerlink" title="过滤MAF MISS OCCURRENCE 后的VCF文件路"></a>过滤MAF MISS OCCURRENCE 后的VCF文件路</h2><pre><code>cd /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel
+</code></pre><h2 id="log"><a href="#log" class="headerlink" title="log"></a>log</h2><pre><code>cd /data4/home/aoyue/vmap2/analysis/023_hapScanner_basedPopDepth/log/004
+</code></pre><h1 id="Pipeline"><a href="#Pipeline" class="headerlink" title="Pipeline"></a>Pipeline</h1><h2 id="Step1-bgzip-and-build-vcf-index"><a href="#Step1-bgzip-and-build-vcf-index" class="headerlink" title="Step1: bgzip and build vcf index"></a>Step1: bgzip and build vcf index</h2><h3 id="abd"><a href="#abd" class="headerlink" title="abd"></a>abd</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">bgzip -@ 4 chr001.vcf &amp;&amp; tabix -p vcf chr001.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr002.vcf &amp;&amp; tabix -p vcf chr002.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr003.vcf &amp;&amp; tabix -p vcf chr003.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr004.vcf &amp;&amp; tabix -p vcf chr004.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr005.vcf &amp;&amp; tabix -p vcf chr005.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr006.vcf &amp;&amp; tabix -p vcf chr006.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr007.vcf &amp;&amp; tabix -p vcf chr007.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr008.vcf &amp;&amp; tabix -p vcf chr008.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr009.vcf &amp;&amp; tabix -p vcf chr009.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr010.vcf &amp;&amp; tabix -p vcf chr010.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr011.vcf &amp;&amp; tabix -p vcf chr011.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr012.vcf &amp;&amp; tabix -p vcf chr012.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr013.vcf &amp;&amp; tabix -p vcf chr013.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr014.vcf &amp;&amp; tabix -p vcf chr014.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr015.vcf &amp;&amp; tabix -p vcf chr015.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr016.vcf &amp;&amp; tabix -p vcf chr016.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr017.vcf &amp;&amp; tabix -p vcf chr017.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr018.vcf &amp;&amp; tabix -p vcf chr018.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr019.vcf &amp;&amp; tabix -p vcf chr019.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr020.vcf &amp;&amp; tabix -p vcf chr020.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr021.vcf &amp;&amp; tabix -p vcf chr021.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr022.vcf &amp;&amp; tabix -p vcf chr022.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr023.vcf &amp;&amp; tabix -p vcf chr023.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr024.vcf &amp;&amp; tabix -p vcf chr024.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr025.vcf &amp;&amp; tabix -p vcf chr025.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr026.vcf &amp;&amp; tabix -p vcf chr026.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr027.vcf &amp;&amp; tabix -p vcf chr027.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr028.vcf &amp;&amp; tabix -p vcf chr028.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr029.vcf &amp;&amp; tabix -p vcf chr029.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr030.vcf &amp;&amp; tabix -p vcf chr030.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr031.vcf &amp;&amp; tabix -p vcf chr031.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr032.vcf &amp;&amp; tabix -p vcf chr032.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr033.vcf &amp;&amp; tabix -p vcf chr033.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr034.vcf &amp;&amp; tabix -p vcf chr034.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr035.vcf &amp;&amp; tabix -p vcf chr035.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr036.vcf &amp;&amp; tabix -p vcf chr036.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr037.vcf &amp;&amp; tabix -p vcf chr037.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr038.vcf &amp;&amp; tabix -p vcf chr038.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr039.vcf &amp;&amp; tabix -p vcf chr039.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr040.vcf &amp;&amp; tabix -p vcf chr040.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr041.vcf &amp;&amp; tabix -p vcf chr041.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr042.vcf &amp;&amp; tabix -p vcf chr042.vcf.gz &amp;</span><br></pre></td></tr></table></figure>
+<pre><code>cd /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF
+</code></pre><h3 id="ab"><a href="#ab" class="headerlink" title="ab"></a>ab</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">bgzip -@ 4 chr001.vcf &amp;&amp; tabix -p vcf chr001.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr002.vcf &amp;&amp; tabix -p vcf chr002.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr003.vcf &amp;&amp; tabix -p vcf chr003.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr004.vcf &amp;&amp; tabix -p vcf chr004.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr007.vcf &amp;&amp; tabix -p vcf chr007.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr008.vcf &amp;&amp; tabix -p vcf chr008.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr009.vcf &amp;&amp; tabix -p vcf chr009.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr010.vcf &amp;&amp; tabix -p vcf chr010.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr013.vcf &amp;&amp; tabix -p vcf chr013.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr014.vcf &amp;&amp; tabix -p vcf chr014.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr015.vcf &amp;&amp; tabix -p vcf chr015.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr016.vcf &amp;&amp; tabix -p vcf chr016.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr019.vcf &amp;&amp; tabix -p vcf chr019.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr020.vcf &amp;&amp; tabix -p vcf chr020.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr021.vcf &amp;&amp; tabix -p vcf chr021.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr022.vcf &amp;&amp; tabix -p vcf chr022.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr025.vcf &amp;&amp; tabix -p vcf chr025.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr026.vcf &amp;&amp; tabix -p vcf chr026.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr027.vcf &amp;&amp; tabix -p vcf chr027.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr028.vcf &amp;&amp; tabix -p vcf chr028.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr031.vcf &amp;&amp; tabix -p vcf chr031.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr032.vcf &amp;&amp; tabix -p vcf chr032.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr033.vcf &amp;&amp; tabix -p vcf chr033.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr034.vcf &amp;&amp; tabix -p vcf chr034.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr037.vcf &amp;&amp; tabix -p vcf chr037.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr038.vcf &amp;&amp; tabix -p vcf chr038.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr039.vcf &amp;&amp; tabix -p vcf chr039.vcf.gz &amp;</span><br><span class="line">bgzip -@ 4 chr040.vcf &amp;&amp; tabix -p vcf chr040.vcf.gz &amp;</span><br></pre></td></tr></table></figure>
+<pre><code>cd /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF
+</code></pre><h2 id="Step2-bcftools-merge"><a href="#Step2-bcftools-merge" class="headerlink" title="Step2: bcftools merge"></a>Step2: bcftools merge</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr001.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr001.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr001.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr002.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr002.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr002.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr003.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr003.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr003.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr004.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr004.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr004.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr005.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr005.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr005.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr006.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr006.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr006.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr007.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr007.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr007.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr008.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr008.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr008.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr009.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr009.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr009.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr010.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr010.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr010.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr011.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr011.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr011.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr012.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr012.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr012.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr013.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr013.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr013.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr014.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr014.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr014.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr015.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr015.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr015.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr016.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr016.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr016.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr017.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr017.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr017.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr018.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr018.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr018.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr019.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr019.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr019.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr020.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr020.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr020.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr021.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr021.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr021.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr022.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr022.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr022.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr023.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr023.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr023.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr024.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr024.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr024.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr025.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr025.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr025.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr026.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr026.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr026.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr027.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr027.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr027.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr028.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr028.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr028.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr029.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr029.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr029.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr030.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr030.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr030.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr031.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr031.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr031.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr032.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr032.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr032.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr033.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr033.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr033.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr034.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr034.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr034.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr035.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr035.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr035.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr036.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr036.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr036.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr037.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr037.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr037.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr038.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr038.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr038.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr039.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr039.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr039.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr040.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/ab/out/VCF/chr040.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr040.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr041.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr041.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr041.vcf &amp;</span><br><span class="line">/data1/programs/bcftools-1.8/bcftools merge -m all --force-samples -f PASS,. --threads 8 /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/abd/out/VCF/chr042.vcf.gz /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/d/out/VCF/chr042.vcf.gz -o /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr042.vcf &amp;</span><br></pre></td></tr></table></figure>
+<pre><code>cd /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner
+</code></pre><h2 id="Step3-filter-by-maf-gt-0-01-Occurrence-gt-2-Miss-lt-0-2"><a href="#Step3-filter-by-maf-gt-0-01-Occurrence-gt-2-Miss-lt-0-2" class="headerlink" title="Step3: filter by maf&gt;=0.01, Occurrence&gt;=2, Miss&lt;=0.2"></a>Step3: filter by maf&gt;=0.01, Occurrence&gt;=2, Miss&lt;=0.2</h2><h3 id="结果文件"><a href="#结果文件" class="headerlink" title="结果文件"></a>结果文件</h3><pre><code>cd /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel
+</code></pre><h3 id="日志文件目录"><a href="#日志文件目录" class="headerlink" title="日志文件目录"></a>日志文件目录</h3><pre><code>cd /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence
+</code></pre><h3 id="运行程序"><a href="#运行程序" class="headerlink" title="运行程序"></a>运行程序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr001.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr001.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr002.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr002.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr003.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr003.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr004.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr004.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr005.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr005.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr006.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr006.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr007.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr007.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr008.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr008.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr009.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr009.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr010.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr010.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr011.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr011.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr012.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr012.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr013.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr013.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr014.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr014.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr015.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr015.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr016.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr016.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr017.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr017.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr018.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr018.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr019.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr019.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr020.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr020.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr021.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr021.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr022.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr022.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr023.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr023.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr024.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr024.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr025.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr025.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr026.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr026.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr027.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr027.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr028.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr028.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr029.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr029.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr030.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr030.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr031.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr031.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr032.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr032.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr033.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr033.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr034.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr034.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr035.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr035.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr036.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr036.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr037.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr037.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr038.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr038.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr039.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr039.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr040.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr040.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr041.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr041.vcf</span><br><span class="line">java -Xms200g -Xmx200g -jar 044_filterMafOccurrenceMiss.jar /data4/home/aoyue/vmap2/genotype/mergedVCF/106_MergedIndel_fromHapScanner/chr042.vcf /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence/log_chr042.vcf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel</span><br><span class="line">cd /data4/home/aoyue/vmap2/analysis/029_hapScanner_onlyIndel/log_filterMafMissOccurrence</span><br><span class="line">ls|xargs cat|grep complete</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<h2 id="Step4-修改名字"><a href="#Step4-修改名字" class="headerlink" title="Step4: 修改名字"></a>Step4: 修改名字</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">mv chr001_occu2_maf0.01_miss0.2.vcf chr001_vmap2.0.vcf</span><br><span class="line">mv chr002_occu2_maf0.01_miss0.2.vcf chr002_vmap2.0.vcf</span><br><span class="line">mv chr003_occu2_maf0.01_miss0.2.vcf chr003_vmap2.0.vcf</span><br><span class="line">mv chr004_occu2_maf0.01_miss0.2.vcf chr004_vmap2.0.vcf</span><br><span class="line">mv chr005_occu2_maf0.01_miss0.2.vcf chr005_vmap2.0.vcf</span><br><span class="line">mv chr006_occu2_maf0.01_miss0.2.vcf chr006_vmap2.0.vcf</span><br><span class="line">mv chr007_occu2_maf0.01_miss0.2.vcf chr007_vmap2.0.vcf</span><br><span class="line">mv chr008_occu2_maf0.01_miss0.2.vcf chr008_vmap2.0.vcf</span><br><span class="line">mv chr009_occu2_maf0.01_miss0.2.vcf chr009_vmap2.0.vcf</span><br><span class="line">mv chr010_occu2_maf0.01_miss0.2.vcf chr010_vmap2.0.vcf</span><br><span class="line">mv chr011_occu2_maf0.01_miss0.2.vcf chr011_vmap2.0.vcf</span><br><span class="line">mv chr012_occu2_maf0.01_miss0.2.vcf chr012_vmap2.0.vcf</span><br><span class="line">mv chr013_occu2_maf0.01_miss0.2.vcf chr013_vmap2.0.vcf</span><br><span class="line">mv chr014_occu2_maf0.01_miss0.2.vcf chr014_vmap2.0.vcf</span><br><span class="line">mv chr015_occu2_maf0.01_miss0.2.vcf chr015_vmap2.0.vcf</span><br><span class="line">mv chr016_occu2_maf0.01_miss0.2.vcf chr016_vmap2.0.vcf</span><br><span class="line">mv chr017_occu2_maf0.01_miss0.2.vcf chr017_vmap2.0.vcf</span><br><span class="line">mv chr018_occu2_maf0.01_miss0.2.vcf chr018_vmap2.0.vcf</span><br><span class="line">mv chr019_occu2_maf0.01_miss0.2.vcf chr019_vmap2.0.vcf</span><br><span class="line">mv chr020_occu2_maf0.01_miss0.2.vcf chr020_vmap2.0.vcf</span><br><span class="line">mv chr021_occu2_maf0.01_miss0.2.vcf chr021_vmap2.0.vcf</span><br><span class="line">mv chr022_occu2_maf0.01_miss0.2.vcf chr022_vmap2.0.vcf</span><br><span class="line">mv chr023_occu2_maf0.01_miss0.2.vcf chr023_vmap2.0.vcf</span><br><span class="line">mv chr024_occu2_maf0.01_miss0.2.vcf chr024_vmap2.0.vcf</span><br><span class="line">mv chr025_occu2_maf0.01_miss0.2.vcf chr025_vmap2.0.vcf</span><br><span class="line">mv chr026_occu2_maf0.01_miss0.2.vcf chr026_vmap2.0.vcf</span><br><span class="line">mv chr027_occu2_maf0.01_miss0.2.vcf chr027_vmap2.0.vcf</span><br><span class="line">mv chr028_occu2_maf0.01_miss0.2.vcf chr028_vmap2.0.vcf</span><br><span class="line">mv chr029_occu2_maf0.01_miss0.2.vcf chr029_vmap2.0.vcf</span><br><span class="line">mv chr030_occu2_maf0.01_miss0.2.vcf chr030_vmap2.0.vcf</span><br><span class="line">mv chr031_occu2_maf0.01_miss0.2.vcf chr031_vmap2.0.vcf</span><br><span class="line">mv chr032_occu2_maf0.01_miss0.2.vcf chr032_vmap2.0.vcf</span><br><span class="line">mv chr033_occu2_maf0.01_miss0.2.vcf chr033_vmap2.0.vcf</span><br><span class="line">mv chr034_occu2_maf0.01_miss0.2.vcf chr034_vmap2.0.vcf</span><br><span class="line">mv chr035_occu2_maf0.01_miss0.2.vcf chr035_vmap2.0.vcf</span><br><span class="line">mv chr036_occu2_maf0.01_miss0.2.vcf chr036_vmap2.0.vcf</span><br><span class="line">mv chr037_occu2_maf0.01_miss0.2.vcf chr037_vmap2.0.vcf</span><br><span class="line">mv chr038_occu2_maf0.01_miss0.2.vcf chr038_vmap2.0.vcf</span><br><span class="line">mv chr039_occu2_maf0.01_miss0.2.vcf chr039_vmap2.0.vcf</span><br><span class="line">mv chr040_occu2_maf0.01_miss0.2.vcf chr040_vmap2.0.vcf</span><br><span class="line">mv chr041_occu2_maf0.01_miss0.2.vcf chr041_vmap2.0.vcf</span><br><span class="line">mv chr042_occu2_maf0.01_miss0.2.vcf chr042_vmap2.0.vcf</span><br></pre></td></tr></table></figure>
+<h2 id="Step5-calculate-Indel-and-make-table"><a href="#Step5-calculate-Indel-and-make-table" class="headerlink" title="Step5: calculate Indel and make table"></a>Step5: calculate Indel and make table</h2><h3 id="在HPC上计数"><a href="#在HPC上计数" class="headerlink" title="在HPC上计数"></a>在HPC上计数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cda</span><br><span class="line">java -jar 043_countSitesinFastCallformat.jar  /data4/home/aoyue/vmap2/genotype/mergedVCF/107_VMap2.0_Indel &gt; log_043_countSitesinFastCallformat_fixVMap2.0Indels_20200818.txt 2&gt;&amp;1 &amp;</span><br><span class="line">cat /data4/home/aoyue/vmap2/aaPlantGenetics/log_043_countSitesinFastCallformat_fixVMap2.0Indels_20200818.txt</span><br></pre></td></tr></table></figure>
+<h3 id="转化表格"><a href="#转化表格" class="headerlink" title="转化表格"></a>转化表格</h3><p>①将数据放入特定目录下，运行程序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CountSites.mergeChr1and2txt_int(&quot;/Users/Aoyue/project/wheatVMapII/003_dataAnalysis/005_vcf/029_countSiteSummary/002_vmap2.0/log_043_countSitesinFastCallformat_fixVMap2.0Indels_20200818.txt&quot;,&quot;/Users/Aoyue/project/wheatVMapII/003_dataAnalysis/005_vcf/029_countSiteSummary/002_vmap2.0/CountVariants_fixVMap2.0_Indel_20200818.txt&quot;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="Step6-压缩并建立索引"><a href="#Step6-压缩并建立索引" class="headerlink" title="Step6: 压缩并建立索引"></a>Step6: 压缩并建立索引</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">bgzip chr001_vmap2.0.vcf &amp;&amp; tabix -p vcf chr001_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr002_vmap2.0.vcf &amp;&amp; tabix -p vcf chr002_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr003_vmap2.0.vcf &amp;&amp; tabix -p vcf chr003_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr004_vmap2.0.vcf &amp;&amp; tabix -p vcf chr004_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr005_vmap2.0.vcf &amp;&amp; tabix -p vcf chr005_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr006_vmap2.0.vcf &amp;&amp; tabix -p vcf chr006_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr007_vmap2.0.vcf &amp;&amp; tabix -p vcf chr007_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr008_vmap2.0.vcf &amp;&amp; tabix -p vcf chr008_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr009_vmap2.0.vcf &amp;&amp; tabix -p vcf chr009_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr010_vmap2.0.vcf &amp;&amp; tabix -p vcf chr010_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr011_vmap2.0.vcf &amp;&amp; tabix -p vcf chr011_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr012_vmap2.0.vcf &amp;&amp; tabix -p vcf chr012_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr013_vmap2.0.vcf &amp;&amp; tabix -p vcf chr013_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr014_vmap2.0.vcf &amp;&amp; tabix -p vcf chr014_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr015_vmap2.0.vcf &amp;&amp; tabix -p vcf chr015_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr016_vmap2.0.vcf &amp;&amp; tabix -p vcf chr016_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr017_vmap2.0.vcf &amp;&amp; tabix -p vcf chr017_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr018_vmap2.0.vcf &amp;&amp; tabix -p vcf chr018_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr019_vmap2.0.vcf &amp;&amp; tabix -p vcf chr019_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr020_vmap2.0.vcf &amp;&amp; tabix -p vcf chr020_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr021_vmap2.0.vcf &amp;&amp; tabix -p vcf chr021_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr022_vmap2.0.vcf &amp;&amp; tabix -p vcf chr022_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr023_vmap2.0.vcf &amp;&amp; tabix -p vcf chr023_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr024_vmap2.0.vcf &amp;&amp; tabix -p vcf chr024_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr025_vmap2.0.vcf &amp;&amp; tabix -p vcf chr025_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr026_vmap2.0.vcf &amp;&amp; tabix -p vcf chr026_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr027_vmap2.0.vcf &amp;&amp; tabix -p vcf chr027_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr028_vmap2.0.vcf &amp;&amp; tabix -p vcf chr028_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr029_vmap2.0.vcf &amp;&amp; tabix -p vcf chr029_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr030_vmap2.0.vcf &amp;&amp; tabix -p vcf chr030_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr031_vmap2.0.vcf &amp;&amp; tabix -p vcf chr031_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr032_vmap2.0.vcf &amp;&amp; tabix -p vcf chr032_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr033_vmap2.0.vcf &amp;&amp; tabix -p vcf chr033_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr034_vmap2.0.vcf &amp;&amp; tabix -p vcf chr034_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr035_vmap2.0.vcf &amp;&amp; tabix -p vcf chr035_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr036_vmap2.0.vcf &amp;&amp; tabix -p vcf chr036_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr037_vmap2.0.vcf &amp;&amp; tabix -p vcf chr037_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr038_vmap2.0.vcf &amp;&amp; tabix -p vcf chr038_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr039_vmap2.0.vcf &amp;&amp; tabix -p vcf chr039_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr040_vmap2.0.vcf &amp;&amp; tabix -p vcf chr040_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr041_vmap2.0.vcf &amp;&amp; tabix -p vcf chr041_vmap2.0.vcf.gz &amp;</span><br><span class="line">bgzip chr042_vmap2.0.vcf &amp;&amp; tabix -p vcf chr042_vmap2.0.vcf.gz &amp;</span><br></pre></td></tr></table></figure>
+<h2 id="Step7-和VMap2-0进行合并"><a href="#Step7-和VMap2-0进行合并" class="headerlink" title="Step7: 和VMap2.0进行合并"></a>Step7: 和VMap2.0进行合并</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/17/000_MarkDown_grammer/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aoyue Bi</p>
+              <p class="site-description motion-element" itemprop="description">PH.D. student</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一条染色体的测试，画MAF图"><span class="nav-number">1.</span> <span class="nav-text">一条染色体的测试，画MAF图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#路径大全"><span class="nav-number">2.</span> <span class="nav-text">路径大全</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HapScanner-VCF-file-文件路径"><span class="nav-number">2.1.</span> <span class="nav-text">HapScanner VCF file 文件路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bcftools-合并后的VCF文件路径"><span class="nav-number">2.2.</span> <span class="nav-text">bcftools 合并后的VCF文件路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤MAF-MISS-OCCURRENCE-后的VCF文件路"><span class="nav-number">2.3.</span> <span class="nav-text">过滤MAF MISS OCCURRENCE 后的VCF文件路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#log"><span class="nav-number">2.4.</span> <span class="nav-text">log</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pipeline"><span class="nav-number">3.</span> <span class="nav-text">Pipeline</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Step1-bgzip-and-build-vcf-index"><span class="nav-number">3.1.</span> <span class="nav-text">Step1: bgzip and build vcf index</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#abd"><span class="nav-number">3.1.1.</span> <span class="nav-text">abd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ab"><span class="nav-number">3.1.2.</span> <span class="nav-text">ab</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step2-bcftools-merge"><span class="nav-number">3.2.</span> <span class="nav-text">Step2: bcftools merge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step3-filter-by-maf-gt-0-01-Occurrence-gt-2-Miss-lt-0-2"><span class="nav-number">3.3.</span> <span class="nav-text">Step3: filter by maf&gt;=0.01, Occurrence&gt;=2, Miss&lt;=0.2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结果文件"><span class="nav-number">3.3.1.</span> <span class="nav-text">结果文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志文件目录"><span class="nav-number">3.3.2.</span> <span class="nav-text">日志文件目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行程序"><span class="nav-number">3.3.3.</span> <span class="nav-text">运行程序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step4-修改名字"><span class="nav-number">3.4.</span> <span class="nav-text">Step4: 修改名字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step5-calculate-Indel-and-make-table"><span class="nav-number">3.5.</span> <span class="nav-text">Step5: calculate Indel and make table</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在HPC上计数"><span class="nav-number">3.5.1.</span> <span class="nav-text">在HPC上计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转化表格"><span class="nav-number">3.5.2.</span> <span class="nav-text">转化表格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step6-压缩并建立索引"><span class="nav-number">3.6.</span> <span class="nav-text">Step6: 压缩并建立索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step7-和VMap2-0进行合并"><span class="nav-number">3.7.</span> <span class="nav-text">Step7: 和VMap2.0进行合并</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aoyue Bi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
