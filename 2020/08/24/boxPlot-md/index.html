@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="This R tutorial describes how to create a box plot using Rsoftware and ggplot2 package. The function geom_boxplot() is used. A simplified format is : geom_boxplot(outlier.colour=&amp;quot;black&amp;quot;, out">
+<meta name="keywords" content="Evolution Genomics Genetics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="boxPlot.md">
+<meta property="og:url" content="http://yoursite.com/2020/08/24/boxPlot-md/index.html">
+<meta property="og:site_name" content="Plant Genetics">
+<meta property="og:description" content="This R tutorial describes how to create a box plot using Rsoftware and ggplot2 package. The function geom_boxplot() is used. A simplified format is : geom_boxplot(outlier.colour=&amp;quot;black&amp;quot;, out">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-3-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-3-2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-3-3.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-3-4.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-4-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-5-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-6-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-6-2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-7-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-8-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-8-2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-8-3.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/cars-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/cars-2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-9-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-9-2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-9-3.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-10-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-10-2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-10-3.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-11-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-12-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-12-2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-13-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-13-2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-14-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-14-2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-15-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-15-2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-15-3.png">
+<meta property="og:updated_time" content="2020-08-24T11:05:19.695Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="boxPlot.md">
+<meta name="twitter:description" content="This R tutorial describes how to create a box plot using Rsoftware and ggplot2 package. The function geom_boxplot() is used. A simplified format is : geom_boxplot(outlier.colour=&amp;quot;black&amp;quot;, out">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/24/boxPlot-md/boxPlot_files/figure-markdown_strict/unnamed-chunk-3-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/08/24/boxPlot-md/">
+
+
+
+
+
+  <title>boxPlot.md | Plant Genetics</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Plant Genetics</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">The greatest test of courage on earth is to bear defeat without losing heart</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/24/boxPlot-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aoyue Bi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Plant Genetics">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">boxPlot.md</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-24T19:04:06+08:00">
+                2020-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>This <strong>R tutorial</strong> describes how to create a <strong>box plot</strong> using <strong>R<br>software</strong> and <strong>ggplot2</strong> package.</p>
+<p>The function <strong>geom_boxplot()</strong> is used. A simplified format is :</p>
+<pre><code>geom_boxplot(outlier.colour=&quot;black&quot;, outlier.shape=16, outlier.size=2, notch=FALSE)
+</code></pre><ul>
+<li><strong>outlier.colour</strong>, <strong>outlier.shape</strong>, <strong>outlier.size</strong> : The color,<br>the shape and the size for outlying points</li>
+<li><strong>notch</strong> : logical value. If TRUE, make a <strong>notched box plot</strong>. The<br>notch displays a confidence interval around the median which is<br>normally based on the median +/- 1.58*IQR/sqrt(n). Notches are used<br>to compare groups; if the notches of two boxes do not overlap, this<br>is a strong evidence that the medians differ.</li>
+</ul>
+<h1 id="Prepare-the-data"><a href="#Prepare-the-data" class="headerlink" title="Prepare the data"></a>Prepare the data</h1><pre><code># Convert the variable dose from a numeric to a factor variable
+ToothGrowth$dose &lt;- as.factor(ToothGrowth$dose)
+head(ToothGrowth)
+
+##    len supp dose
+## 1  4.2   VC  0.5
+## 2 11.5   VC  0.5
+## 3  7.3   VC  0.5
+## 4  5.8   VC  0.5
+## 5  6.4   VC  0.5
+## 6 10.0   VC  0.5
+</code></pre><h1 id="Basic-box-plots"><a href="#Basic-box-plots" class="headerlink" title="Basic box plots"></a>Basic box plots</h1><pre><code>library(ggplot2)
+# Basic box plot
+p &lt;- ggplot(ToothGrowth, aes(x=dose, y=len)) + 
+  geom_boxplot()
+p
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-3-1.png" alt></p>
+<pre><code># Rotate the box plot
+p + coord_flip()
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-3-2.png" alt></p>
+<pre><code># Notched box plot
+ggplot(ToothGrowth, aes(x=dose, y=len)) + 
+  geom_boxplot(notch=TRUE)
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-3-3.png" alt></p>
+<pre><code># Change outlier, color, shape and size
+ggplot(ToothGrowth, aes(x=dose, y=len)) + 
+  geom_boxplot(outlier.colour=&quot;red&quot;, outlier.shape=8,
+                outlier.size=4)
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-3-4.png" alt></p>
+<p>The function <strong>stat_summary()</strong> can be used to add mean points to a box<br>plot :</p>
+<pre><code># Box plot with mean points
+p + stat_summary(fun=mean, geom=&quot;point&quot;, shape=23, size=4)
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-4-1.png" alt></p>
+<p>Choose which items to display :</p>
+<pre><code>p + scale_x_discrete(limits=c(&quot;0.5&quot;, &quot;2&quot;))
+
+## Warning: Removed 20 rows containing missing values (stat_boxplot).
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-5-1.png" alt></p>
+<h1 id="Box-plot-with-dots"><a href="#Box-plot-with-dots" class="headerlink" title="Box plot with dots"></a>Box plot with dots</h1><p>Dots (or points) can be added to a box plot using the functions<br><strong>geom_dotplot()</strong> or <strong>geom_jitter()</strong> :</p>
+<pre><code># Box plot with dot plot
+p + geom_dotplot(binaxis=&apos;y&apos;, stackdir=&apos;center&apos;, dotsize=1)
+
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-6-1.png" alt></p>
+<pre><code># Box plot with jittered points
+# 0.2 : degree of jitter in x direction
+p + geom_jitter(shape=16, position=position_jitter(0.2))
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-6-2.png" alt></p>
+<h1 id="Change-box-plot-colors-by-groups"><a href="#Change-box-plot-colors-by-groups" class="headerlink" title="Change box plot colors by groups"></a>Change box plot colors by groups</h1><h2 id="Change-box-plot-line-colors"><a href="#Change-box-plot-line-colors" class="headerlink" title="Change box plot line colors"></a>Change box plot line colors</h2><p>Box plot line colors can be automatically controlled by the levels of<br>the variable *dose() :</p>
+<pre><code># Change box plot line colors by groups
+p&lt;-ggplot(ToothGrowth, aes(x=dose, y=len, color=dose)) +
+  geom_boxplot()
+p
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-7-1.png" alt></p>
+<p>It is also possible to <em>change manually box plot line colors</em> using the<br>functions :</p>
+<ul>
+<li><strong>scale_color_manual()</strong> : to use custom colors</li>
+<li><strong>scale_color_brewer()</strong> : to use color palettes from<br><strong>RColorBrewer</strong> package</li>
+<li><strong>scale_color_grey()</strong> : to use grey color palettes</li>
+</ul>
+<!-- -->
+<pre><code># Use custom color palettes
+p+scale_color_manual(values=c(&quot;#999999&quot;, &quot;#E69F00&quot;, &quot;#56B4E9&quot;))
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-8-1.png" alt></p>
+<pre><code># Use brewer color palettes
+p+scale_color_brewer(palette=&quot;Dark2&quot;)
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-8-2.png" alt></p>
+<pre><code># Use grey scale
+p + scale_color_grey() + theme_classic()
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-8-3.png" alt></p>
+<p>Read more on ggplot2 colors here : <a href="http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually" target="_blank" rel="noopener">ggplot2<br>colors</a></p>
+<h2 id="Change-box-plot-fill-colors"><a href="#Change-box-plot-fill-colors" class="headerlink" title="Change box plot fill colors"></a>Change box plot fill colors</h2><p>In the R code below, box plot fill colors are automatically controlled<br>by the levels of <em>dose</em> :</p>
+<pre><code># Use single color
+ggplot(ToothGrowth, aes(x=dose, y=len)) +
+  geom_boxplot(fill=&apos;#A4A4A4&apos;, color=&quot;black&quot;)+
+  theme_classic()
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/cars-1.png" alt></p>
+<pre><code># Change box plot colors by groups
+p&lt;-ggplot(ToothGrowth, aes(x=dose, y=len, fill=dose)) +
+  geom_boxplot()
+p
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/cars-2.png" alt></p>
+<p>It is also possible to change manually box plot fill colors using the<br>functions :</p>
+<ul>
+<li><em>scale_fill_manual()</em> : to use custom colors</li>
+<li><em>scale_fill_brewer()</em> : to use color palettes from <em>RColorBrewer</em><br>package</li>
+<li><em>scale_fill_grey()</em> : to use grey color palettes</li>
+</ul>
+<!-- -->
+<pre><code># Use custom color palettes
+p+scale_fill_manual(values=c(&quot;#999999&quot;, &quot;#E69F00&quot;, &quot;#56B4E9&quot;))
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-9-1.png" alt></p>
+<pre><code># use brewer color palettes
+p+scale_fill_brewer(palette=&quot;Dark2&quot;)
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-9-2.png" alt></p>
+<pre><code># Use grey scale
+p + scale_fill_grey() + theme_classic()
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-9-3.png" alt></p>
+<p>Read more on ggplot2 colors here : <a href="http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually" target="_blank" rel="noopener">ggplot2<br>colors</a></p>
+<h1 id="Change-the-legend-position"><a href="#Change-the-legend-position" class="headerlink" title="Change the legend position"></a>Change the legend position</h1><pre><code>p + theme(legend.position=&quot;top&quot;)
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-10-1.png" alt></p>
+<pre><code>p + theme(legend.position=&quot;bottom&quot;)
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-10-2.png" alt></p>
+<pre><code>p + theme(legend.position=&quot;none&quot;) # Remove legend
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-10-3.png" alt></p>
+<p><style><br>div.green { background-color:#ccffeb; border-radius: 5px; padding: 20px;}<br></style><br>The allowed values for the arguments <strong>legend.position</strong> are :<br>“left”,“top”, “right”, “bottom”.</p>
+<p><br><br> Read more on ggplot legend : <a href="http://www.sthda.com/english/wiki/ggplot2-legend-easy-steps-to-change-the-position-and-the-appearance-of-a-graph-legend-in-r-software" target="_blank" rel="noopener">ggplot2<br>legend</a></p>
+<h1 id="Change-the-order-of-items-in-the-legend"><a href="#Change-the-order-of-items-in-the-legend" class="headerlink" title="Change the order of items in the legend"></a>Change the order of items in the legend</h1><p>The function <strong>scale_x_discrete</strong> can be used to change the order of<br>items to “2”, “0.5”, “1” :</p>
+<pre><code>p + scale_x_discrete(limits=c(&quot;2&quot;, &quot;0.5&quot;, &quot;1&quot;))
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-11-1.png" alt></p>
+<h1 id="Box-plot-with-multiple-groups"><a href="#Box-plot-with-multiple-groups" class="headerlink" title="Box plot with multiple groups"></a>Box plot with multiple groups</h1><pre><code># Change box plot colors by groups
+ggplot(ToothGrowth, aes(x=dose, y=len, fill=supp)) +
+  geom_boxplot()
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-12-1.png" alt></p>
+<pre><code># Change the position
+p&lt;-ggplot(ToothGrowth, aes(x=dose, y=len, fill=supp)) +
+  geom_boxplot(position=position_dodge(1))
+p
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-12-2.png" alt></p>
+<p>Change box plot colors and add dots :</p>
+<pre><code># Add dots
+p + geom_dotplot(binaxis=&apos;y&apos;, stackdir=&apos;center&apos;,
+                 position=position_dodge(1))
+
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-13-1.png" alt></p>
+<pre><code># Change colors
+p+scale_fill_manual(values=c(&quot;#999999&quot;, &quot;#E69F00&quot;, &quot;#56B4E9&quot;))
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-13-2.png" alt></p>
+<h1 id="Customized-box-plots"><a href="#Customized-box-plots" class="headerlink" title="Customized box plots"></a>Customized box plots</h1><pre><code># Basic box plot
+ggplot(ToothGrowth, aes(x=dose, y=len)) + 
+  geom_boxplot(fill=&quot;gray&quot;)+
+  labs(title=&quot;Plot of length per dose&quot;,x=&quot;Dose (mg)&quot;, y = &quot;Length&quot;)+
+  theme_classic()
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-14-1.png" alt></p>
+<pre><code># Change  automatically color by groups
+bp &lt;- ggplot(ToothGrowth, aes(x=dose, y=len, fill=dose)) + 
+  geom_boxplot()+
+  labs(title=&quot;Plot of length  per dose&quot;,x=&quot;Dose (mg)&quot;, y = &quot;Length&quot;)
+bp + theme_classic()
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-14-2.png" alt></p>
+<p>Change fill colors manually :</p>
+<pre><code># Continuous colors
+bp + scale_fill_brewer(palette=&quot;Blues&quot;) + theme_classic()
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-15-1.png" alt></p>
+<pre><code># Discrete colors
+bp + scale_fill_brewer(palette=&quot;Dark2&quot;) + theme_minimal()
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-15-2.png" alt></p>
+<pre><code># Gradient colors
+bp + scale_fill_brewer(palette=&quot;RdBu&quot;) + theme_minimal()
+</code></pre><p><img src="boxPlot_files/figure-markdown_strict/unnamed-chunk-15-3.png" alt></p>
+<p>Read more on ggplot legend : <a href="http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually" target="_blank" rel="noopener">ggplot2<br>colors</a></p>
+<h1 id="Infos"><a href="#Infos" class="headerlink" title="Infos"></a>Infos</h1><p><style><br>div.green { background-color:#ccffeb; border-radius: 5px; padding: 20px;}<br></style><br>This analysis has been performed using <strong>R software</strong> (ver. 4.0.2) and<br><strong>ggplot2</strong> (ver. 3.3.2)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/24/Test/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Aoyue Bi</p>
+              <p class="site-description motion-element" itemprop="description">PH.D. student</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Prepare-the-data"><span class="nav-number">1.</span> <span class="nav-text">Prepare the data</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-box-plots"><span class="nav-number">2.</span> <span class="nav-text">Basic box plots</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Box-plot-with-dots"><span class="nav-number">3.</span> <span class="nav-text">Box plot with dots</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Change-box-plot-colors-by-groups"><span class="nav-number">4.</span> <span class="nav-text">Change box plot colors by groups</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Change-box-plot-line-colors"><span class="nav-number">4.1.</span> <span class="nav-text">Change box plot line colors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Change-box-plot-fill-colors"><span class="nav-number">4.2.</span> <span class="nav-text">Change box plot fill colors</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Change-the-legend-position"><span class="nav-number">5.</span> <span class="nav-text">Change the legend position</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Change-the-order-of-items-in-the-legend"><span class="nav-number">6.</span> <span class="nav-text">Change the order of items in the legend</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Box-plot-with-multiple-groups"><span class="nav-number">7.</span> <span class="nav-text">Box plot with multiple groups</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Customized-box-plots"><span class="nav-number">8.</span> <span class="nav-text">Customized box plots</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Infos"><span class="nav-number">9.</span> <span class="nav-text">Infos</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aoyue Bi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
